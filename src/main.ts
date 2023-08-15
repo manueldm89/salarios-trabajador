@@ -14,6 +14,12 @@ async function bootstrap() {
       forbidNonWhitelisted: true
     })
   );
+
+  app.enableCors({
+    origin: '*',
+    methods: 'POST',
+    credentials: true,
+  })
   
   await app.listen(process.env.PORT);
   logger.log(`App runnig on port ${process.env.PORT}`)
